@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 public class KthLargest {
 	
-	private ArrayList<Integer> mergeSort(ArrayList<ArrayList<Integer>> list) {
+	int findKthLargest(int k, ArrayList<ArrayList<Integer>> list)
+	{
+		ArrayList<Integer> merged = this.mergeSort(list);
+		return merged.get(merged.size()-k);
+	}
+	
+	private ArrayList<Integer> mergeSort(ArrayList<ArrayList<Integer>> list)
+	{
 		
 		// Base Case: when list size only has one list, return it
 		if (list.size() == 1) {
@@ -62,12 +69,6 @@ public class KthLargest {
 		}
 		
 		return merged;
-	}
-	
-	int findKthLargest(int k, ArrayList<ArrayList<Integer>> list)
-	{
-		ArrayList<Integer> merged = this.mergeSort(list);
-		return merged.get(merged.size()-k);
 	}
 	
 	public static void main(String[] arg)
